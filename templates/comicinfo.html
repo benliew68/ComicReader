@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='search.css') }}">
+{% endblock %}
+
+{% block title %}Read Comic{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h3>{{ storyItem.title }}</h3>
+    <hr>
+    <img class="img-cover" src="{{ storyItem.cover }}" width="300" height="450"/>
+
+    <h5><b>Authors: </b></h5>
+    {% for author in storyItem.authors %}
+        <span>{{ author }}</span>
+    {% endfor %}
+
+    <p></p> 
+
+    <h5><b>Genres: </b></h5>
+    {% for genre in storyItem.genres %}
+        <span>{{ genre }}</span>
+    {% endfor %}
+
+    <p></p> 
+
+    <h5><b>Release Status: </b></h5>
+    <span>{{ storyItem.status }}</span>
+
+    <p></p> 
+
+    <h4><b>Description: </b></h4>
+    <p>{{ storyItem.description }}</p>
+
+    <a class="btn btn-outline-primary" href="{{ url_for('read', storyURL=storyItem.url, chapter=0) }}" role="button">Start Reading</a>
+    <a class="btn btn-outline-primary" href="{{ url_for('library', storyURL=storyItem.url) }}" role="button">Add to Library</a>
+</div>
+
+<div class="container chapter-list">
+    <p></p>
+    <h4>Chapter(s): {{ storyItem.chapterCount }}</h4>
+
+    <div class="list-group">
+        {% set chapterCount = storyItem.chapterCount | int %}
+        {% for chapterNumber in range(chapterCount)|reverse %}
+        <a href="{{ url_for('read', storyURL=storyItem.url, chapter=chapterNumber) }}" class="list-group-item list-group-item-action">
+            {{ storyItem.chapterListNames[chapterNumber] }}
+        </a>
+          
+        
+        {% endfor %}
+      </div>
+
+
+</div>
+
+{% endblock %}
+
+
+//TODO
+- Draw up the page where the comics are displayed with chapter links and titles + description + genres...

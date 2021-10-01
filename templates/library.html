@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Library{% endblock %}
+
+{% block content %}
+{% with messages = get_flashed_messages() %}
+    {% for msg in messages %}
+        <p>{{msg}}</p>
+    {% endfor %}
+{% endwith %}
+
+
+<h1>I'm the library page.</h1>
+
+{% if "user" in session %} 
+    <p>User Placeholder Text</p>
+{% else %}
+    <p>No User Placeholder Text</p>
+{% endif %}
+
+
+{% endblock %}
