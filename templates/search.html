@@ -19,7 +19,7 @@
 {% for i in range(0, (names|length)-1) %}
     <div class="story-div">
         <a href="{{ links[i] }}"">
-            <img class="img-cover rounded-3" src="{{ imageLinks[i] }}" width="200" height="300"/>
+            <img class="img-cover" src="{{ imageLinks[i] }}" width="200" height="300"/>
         </a>
         <h2>{{ names[i] }}</h2>
         <b>{{ storyItemList[i].status }} - {{ storyItemList[i].chapterCount }} Chapter(s)</b>

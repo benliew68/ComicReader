@@ -1,18 +1,48 @@
 {% extends "base.html" %}
 {% block title %}Library{% endblock %}
 
+{% block head %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='search.css') }}">
+{% endblock %}
+
 {% block content %}
+
 {% with messages = get_flashed_messages() %}
     {% for msg in messages %}
         <p>{{msg}}</p>
     {% endfor %}
 {% endwith %}
 
-
-<h1>I'm the library page.</h1>
-
 {% if "user" in session %} 
-    <p>User Placeholder Text</p>
+    <div class="row">
+        {% for story in storyItemList %}
+            <div class="story-div">
+                <a href="{{ story.url }}"">
+                    <img class="img-cover" src="{{ story.cover }}" width="200" height="300"/>
+                </a>
+                <h2>{{ story.title }}</h2>
+                <b>{{ story.status }} - {{ story.chapterCount }} Chapter(s)</b>
+                <p>{{ story.description }}</p>
+        
+                {% set currentURL = story.url %}
+                
+                <a class="btn btn-outline-primary" id="btnFetch" href="{{ url_for('comicinfo', returnItem=currentURL) }}" role="button">
+                    More Info
+                </a>
+
+                <a class="btn btn-outline-primary" id="btnFetch" href="{{ url_for('read', storyURL=currentURL, chapter="redirectfromlibrary") }}" role="button">
+                    Continue Reading
+                </a>
+
+                <button class="btn btn-outline-primary" type="button">
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Loading...
+                </button>
+            
+            </div>
+        {% endfor %}
+    </div>
 {% else %}
     <p>No User Placeholder Text</p>
 {% endif %}

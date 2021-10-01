@@ -1,6 +1,9 @@
 from sys import set_coroutine_origin_tracking_depth
 import cfscrape
 from bs4 import BeautifulSoup
+import re
+
+
 from requests_html import HTMLSession
 
 from selenium import webdriver
@@ -161,13 +164,15 @@ class Batoto:
         options.add_argument('--ignore-certificate-errors')
         options.add_argument("--window-size=1280,720")'''
         
-
+        imageList = None
         chapterImageLinks = []
+        
 
-        options = Options()
+        #SCRAPER REAL
+        #options = Options()
+        #river = webdriver.Firefox(options=options)
+        #driver.get(url)
 
-        driver = webdriver.Firefox(options=options)
-        driver.get(url)
         #print(driver.get_cookie("__cf_bm"))
         #myCookies = driver.get_cookie("__cf_bm")
         
@@ -178,26 +183,73 @@ class Batoto:
         #page_source = r.html.render()
         #page_source = r.html.raw_html
 
-        #scraper = cfscrape.CloudflareScraper().get(url).content
+        scraper = cfscrape.CloudflareScraper().get(url).content
+        page_source = scraper
+
+        #print(page_source)
+        #print(scraper)
+
         #scraper.html.render()
         #scraper.html.raw_html
 
-        #print(scraper)
-        page_source = driver.page_source
+        
+        #page_source = driver.page_source
 
         
 
-        #webURL = urllib.request.urlopen(url).read()
+      
         doc = BeautifulSoup(page_source, 'lxml')
 
+        for script in doc.find_all('script'):
+            '''print("---")
+            print(str(script))
+            print("---")
+            print(type(script))'''
+            if "const images" in str(script):
+                imageList = str(re.search(r'const images .*', str(script)).group(0))
+                imageList = imageList.replace("const images = [", '').replace('"', '').replace("];",'')
+                imageList = imageList.split(",")
+
+                prependList = ["https://xfs-003.bato.to/", 
+                               "https://xcdn-209.bato.to/7002/5e0/5fe803b76b25d09df6e730e5/",
+                               "https://xfs-007.bato.to/7002/759/6130ff79eebc11256f476957/",
+                               "https://xcdn-210.bato.to/7002/956/5fda60a02351c4f57a5f3659/",
+                               "https://xcdn-225.bato.to/7002/9e4/5fda61f4612b54f56cd444e9/",
+                               "https://xcdn-210.bato.to/7002/1c7/5fda61f5848aa5f55172c7c1/"]
+
+                prependString = ""
+
+                for prepend in prependList:
+                    testLink = str(prepend) + imageList[0]
+                    print(testLink)
+                    
+                    
+                    r = requests.get(testLink)
+                    if r.status_code == 403 or r.status_code == 404:
+                        print("403 ERROR ON " + prepend)
+                    else:
+                        prependString = str(prepend)
+                        break
+
+                    
+
+
+                for image in imageList:
+                    #print(image)
+                    chapterImageLinks.append(prependString + image)
+
+                    
+
+
         #imageViewer = doc.find("div", {"id": "viewer"})
-        for image in doc.find_all("img"):
+
+        '''for image in doc.find_all("img"):
             imageURL = image.get("src")
             if imageURL.startswith("https://"):
-                chapterImageLinks.append(imageURL)
+                chapterImageLinks.append(imageURL)'''
         
-        driver.quit()
-
+        #driver.quit()
+        #print(chapterImageLinks)
         return chapterImageLinks
             
 

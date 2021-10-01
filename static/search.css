@@ -38,3 +38,10 @@ img.center {
     max-width: 99%;
     max-height: 99%;
 }
+
+.wrapper {
+    display: grid;
+    width: 100px;
+    height: 100px;
+    grid-template-columns: auto auto;
+}

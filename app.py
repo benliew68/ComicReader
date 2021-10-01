@@ -28,10 +28,6 @@ class users(db.Model):
         self.password = password
         self.comicsInLibrary = None
 
-def DisplayComics():
-    pass
-
-
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -135,17 +131,21 @@ def library():
             for comic in comicsInLibrary:
                 flash(f"{comic[0]}, {comic[1]}, {comic[2]}")
 
-        
-        flash(f"Logged in as {user}", "info")
+        #Display all the comics in library from the users entry in the database
+        storyItemList = []
+        comicsInLibrary = storyitem.StringToNestedList(dbUser.comicsInLibrary)
 
-        
-        comicList = dbUser
-        DisplayComics()
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            futures = [executor.submit(Batoto.GetStoryDetails, comicsInLibrary[i][0])                  
+                for i in range(0,len(comicsInLibrary))]
+            for f in futures:
+                storyItemList.append(f.result())
+
     else:
         flash("Log in or make an account before accessing your library!")
 
 
-    return render_template("library.html")
+    return render_template("library.html", storyItemList=storyItemList)
 
 
 
@@ -162,7 +162,7 @@ def search():
     storyItemList = []
 
     with concurrent.futures.ThreadPoolExecutor() as executor:
-        futures = [executor.submit(ReturnDescriptions, links[i])                  
+        futures = [executor.submit(Batoto.GetStoryDetails, links[i])                  
             for i in range(0,len(links)-1)]
         for f in futures:
             storyItemList.append(f.result())
