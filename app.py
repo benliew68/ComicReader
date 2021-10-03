@@ -136,7 +136,7 @@ def library():
         comicsInLibrary = storyitem.StringToNestedList(dbUser.comicsInLibrary)
 
         with concurrent.futures.ThreadPoolExecutor() as executor:
-            futures = [executor.submit(Batoto.GetStoryDetails, comicsInLibrary[i][0])                  
+            futures = [executor.submit(getattr(storyitem.ReturnSourceClass(comicsInLibrary[i][0]), 'GetStoryDetails'), comicsInLibrary[i][0])                  
                 for i in range(0,len(comicsInLibrary))]
             for f in futures:
                 storyItemList.append(f.result())
@@ -149,8 +149,9 @@ def library():
 
 
 
-def ReturnDescriptions(url):
-    return Batoto.GetStoryDetails(url)
+def ReturnDetails(url):
+    details = getattr(storyitem.ReturnSourceClass(url), 'GetStoryDetails')
+    return details(url)
 
 @app.route("/search/")
 def search():
@@ -162,7 +163,7 @@ def search():
     storyItemList = []
 
     with concurrent.futures.ThreadPoolExecutor() as executor:
-        futures = [executor.submit(Batoto.GetStoryDetails, links[i])                  
+        futures = [executor.submit(getattr(storyitem.ReturnSourceClass(links[i]), 'GetStoryDetails'), links[i])                  
             for i in range(0,len(links)-1)]
         for f in futures:
             storyItemList.append(f.result())
@@ -172,38 +173,58 @@ def search():
 @app.route("/comicinfo/")
 def comicinfo():
     storyURL = str(request.args.get("returnItem"))
-    detailsItem = Batoto.GetStoryDetails(storyURL)
+    detailsItem = getattr(storyitem.ReturnSourceClass(storyURL), 'GetStoryDetails')
+    detailsItem = detailsItem(storyURL)
 
     return render_template("comicinfo.html", storyItem=detailsItem)
 
 @app.route("/read/")
 def read():
     storyURL = str(request.args.get("storyURL"))
-    chapterNumber = int(request.args.get("chapter"))
+
+    
+    #source = storyitem.ReturnSourceCl(storyURL)
+    
+
+    chapterNumber = request.args.get("chapter")
+    
+    
+
 
     if "user" in session:
         user = session["user"]
         dbUser = users.query.filter_by(name=user).first()
+
+
 
         if dbUser.comicsInLibrary is not None:
             if storyURL in dbUser.comicsInLibrary:
                 comicsInLibrary = storyitem.StringToNestedList(dbUser.comicsInLibrary)
                 for comic in comicsInLibrary:
                     if comic[0] == storyURL:
-                        if chapterNumber > int(comic[1]):
+                        if str(chapterNumber) == "redirectfromlibrary":
+                            chapterNumber = int(comic[1])
+                        elif int(chapterNumber) > int(comic[1]):
                             comic[1] = chapterNumber
+
+                        
                 dbUser.comicsInLibrary = storyitem.NestedListToString(comicsInLibrary)
                 db.session.commit()
 
                 
 
-    storyItem = Batoto.GetStoryDetails(storyURL)
-    chapterImageLinks = Batoto.GetChapterImages(storyItem.chapterListLinks[chapterNumber])
+    storyItem = getattr(storyitem.ReturnSourceClass(storyURL), 'GetStoryDetails')
+    storyItem = storyItem(storyURL)
+    
+    
+    chapterImageLinks = getattr(storyitem.ReturnSourceClass(storyItem.chapterListLinks[int(chapterNumber)]), 'GetChapterImages')
+    chapterImageLinks = chapterImageLinks(storyItem.chapterListLinks[int(chapterNumber)])
+    #Batoto.GetChapterImages(storyItem.chapterListLinks[int(chapterNumber)])
     #placeholder image list uncomment line above ^^
     #chapterImageLinks = ['https://xcdn-223.bato.to/00004/images/fd/0e/fd0e81add4fc0e42d47b517e7db1badd7192f348_230577_870_1259.jpg?acc=EIl07tYBl8GA5aRn8XtJCQ&exp=1633054429', 'https://xcdn-223.bato.to/00004/images/0b/35/0b353bd4dc582b6bebb9966f1b3f4c46f7b2960f_254007_870_1261.jpg?acc=JcaCWO-yira4d6Da1QibFQ&exp=1633054429', 'https://xcdn-223.bato.to/00004/images/db/6e/db6e56dd87745783c0d2d9757bdff82c3cd8d974_256507_870_1254.jpg?acc=uMNceXIhvu-hPRB94gWsfQ&exp=1633054429', 'https://xcdn-223.bato.to/00004/images/3c/12/3c12a235291a512fb9b0408c7d85dfb76b726cf4_253697_870_1247.jpg?acc=5qUkQZGmnBw9o_buGqi_3A&exp=1633054429', 'https://xcdn-223.bato.to/00004/images/be/1c/be1c9453207e37a0a0cfecaf0ed8cd1b47530c05_308695_870_1257.jpg?acc=WOXLrat4tmaeA3xxihAZRw&exp=1633054429', 'https://xcdn-223.bato.to/00004/images/97/9b/979b49c604ce4a10f655db187c75be75194dbfc1_243873_870_1256.jpg?acc=PSexUpsdhAFsDPgSTA__AQ&exp=1633054429', 'https://xcdn-223.bato.to/00004/images/50/d1/50d1055b43e79de3f269dffc03a5507b9b0e17da_246134_870_1258.jpg?acc=dEVjZX587rYTRlV7M4zTFg&exp=1633054429', 'https://xcdn-223.bato.to/00004/images/0a/47/0a4775fb44ccea41fd1287f8799ad372f49b82d9_242485_870_1248.jpg?acc=pV-Q5wuFx5V95cmGvlTggg&exp=1633054429', 'https://xcdn-223.bato.to/00004/images/b7/20/b7207c1516116cd5c35944388b8a70f7edca9c5d_217697_870_1285.jpg?acc=re9jySbgoRJIPqTpA36MIA&exp=1633054429', 'https://xcdn-223.bato.to/00004/images/87/a9/87a93919b8f08671b764ad314b3ce9737cbf1956_264001_870_1256.jpg?acc=j2iGkcfvuE7FvEmGYD-p-A&exp=1633054429', 'https://xcdn-223.bato.to/00004/images/b3/c9/b3c963320e29dd5d3bb947bf1f7672dcb616ff8e_267345_870_1305.jpg?acc=cy80DbHj7p_SX6YTxhMJcg&exp=1633054429', 'https://xcdn-223.bato.to/00004/images/ed/b6/edb6202143e188766c500fb9730aaa68e19e1e89_245856_870_1266.jpg?acc=ToCH95U3aFPQRwcVeZMJvw&exp=1633054429']
     #print(chapterImageLinks)
 
-    return render_template("read.html", storyItem=storyItem, chapterImageLinks=chapterImageLinks, chapterNumber=chapterNumber)
+    return render_template("read.html", storyItem=storyItem, chapterImageLinks=chapterImageLinks, chapterNumber=int(chapterNumber))
 
 @app.route("/user")
 def user():

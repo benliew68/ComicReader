@@ -68,11 +68,12 @@ JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-rofilewftmKM"
-*** You are running in headless mode.
-1632735990622	Marionette	INFO	Marionette enabled
-[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofilewftmKM\\search.json.mozlz4", (void 0)))
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: has already ran once and saw panel, exit.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+enLi\\AppData\\Local\\Temp\\rust_mozprofilewftmKM\\search.json.mozlz4", (void 0)))
 DevTools listening on ws://localhost:9222/devtools/browser/60711ce9-3ffd-40f6-a1c4-10e51fc32781
 1632735991435	Marionette	INFO	Listening on port 1062
 console.log: WebExtensions: reset-default-search: starting.
@@ -81,10 +82,12 @@ JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-6087818	Marionette	INFO	Marionette enabled
-JavaScript error: resource:///modules/BrowserGlue.jsm, line 1337: uncaught exception: undefined
-[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofilesawSVb\\search.json.mozlz4", (void 0)))
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: has already ran once and saw panel, exit.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+ould not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofilesawSVb\\search.json.mozlz4", (void 0)))
 DevTools listening on ws://localhost:9222/devtools/browser/c6fd8610-465e-49aa-a291-3c92c05b8813
 1632736088766	Marionette	INFO	Listening on port 1076
 1632736089088	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
@@ -118,11 +121,12 @@ DevTools listening on ws://localhost:9222/devtools/browser/75bdac61-5249-4743-84
 console.log: WebExtensions: reset-default-search: starting.
 console.log: WebExtensions: reset-default-search: No addons in our list are installed.
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
--debugging-port" "9222" "-no-remote" "-profile" "C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofile5ffAnA"
-*** You are running in headless mode.
-1632980228494	Marionette	INFO	Marionette enabled
-[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofile5ffAnA\\search.json.mozlz4", (void 0)))
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: has already ran once and saw panel, exit.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofile5ffAnA\\search.json.mozlz4", (void 0)))
 DevTools listening on ws://localhost:9222/devtools/browser/a07fdead-9af3-4d88-b4ff-fd371b115efe
 1632980229348	Marionette	INFO	Listening on port 24285
 1632980229769	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
@@ -138,9 +142,10 @@ DevTools listening on ws://localhost:9222/devtools/browser/0afc794c-7e03-43bf-9e
 console.log: WebExtensions: reset-default-search: starting.
 console.log: WebExtensions: reset-default-search: No addons in our list are installed.
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-debugging-port" "9222" "-no-remote" "-profile" "C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofileholhSv"
-*** You are running in headless mode.
-1632988683878	Marionette	INFO	Marionette enabled
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+8683878	Marionette	INFO	Marionette enabled
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofileholhSv\\search.json.mozlz4", (void 0)))
 DevTools listening on ws://localhost:9222/devtools/browser/c0c2ed85-b124-4674-bd07-a9e03d77c937
@@ -149,10 +154,12 @@ DevTools listening on ws://localhost:9222/devtools/browser/c0c2ed85-b124-4674-bd
 console.log: WebExtensions: reset-default-search: starting.
 console.log: WebExtensions: reset-default-search: No addons in our list are installed.
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-1:1061
-1632989416243	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "9222" "-no-remote" "-profile" "C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofilel3alVC"
-*** You are running in headless mode.
-1632989416557	Marionette	INFO	Marionette enabled
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: has already ran once and saw panel, exit.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+57	Marionette	INFO	Marionette enabled
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofilel3alVC\\search.json.mozlz4", (void 0)))
 DevTools listening on ws://localhost:9222/devtools/browser/3a4a51fe-12c6-459c-a1ce-b153a56dbf59
@@ -161,19 +168,24 @@ DevTools listening on ws://localhost:9222/devtools/browser/3a4a51fe-12c6-459c-a1
 console.log: WebExtensions: reset-default-search: starting.
 console.log: WebExtensions: reset-default-search: No addons in our list are installed.
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-debugging-port" "9222" "-no-remote" "-profile" "C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofileAwqWDc"
-*** You are running in headless mode.
-1632989626593	Marionette	INFO	Marionette enabled
-[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofileAwqWDc\\search.json.mozlz4", (void 0)))
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: has already ran once and saw panel, exit.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+o settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofileAwqWDc\\search.json.mozlz4", (void 0)))
 DevTools listening on ws://localhost:9222/devtools/browser/ceb75b96-93f5-4fd0-b112-6ce40348500e
 1632989627479	Marionette	INFO	Listening on port 23450
 1632989627822	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 console.log: WebExtensions: reset-default-search: starting.
 console.log: WebExtensions: reset-default-search: No addons in our list are installed.
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-1632991774241	geckodriver	INFO	Listening on 127.0.0.1:1055
-1632991777245	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "9222" "-no-remote" "-profile" "C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofileVZpuXT"
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: has already ran once and saw panel, exit.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+"
 *** You are running in headless mode.
 1632991777534	Marionette	INFO	Marionette enabled
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
@@ -184,8 +196,12 @@ DevTools listening on ws://localhost:9222/devtools/browser/45e3ec61-e49b-4671-af
 console.log: WebExtensions: reset-default-search: starting.
 console.log: WebExtensions: reset-default-search: No addons in our list are installed.
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-1632995738381	geckodriver	INFO	Listening on 127.0.0.1:1099
-1632995741387	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "9222" "-no-remote" "-profile" "C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofileSMA62T"
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: has already ran once and saw panel, exit.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+"
 *** You are running in headless mode.
 1632995741660	Marionette	INFO	Marionette enabled
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
@@ -196,9 +212,10 @@ DevTools listening on ws://localhost:9222/devtools/browser/ad9255d9-b4ea-421e-be
 console.log: WebExtensions: reset-default-search: starting.
 console.log: WebExtensions: reset-default-search: No addons in our list are installed.
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
--debugging-port" "9222" "-no-remote" "-profile" "C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofileE9BYWE"
-*** You are running in headless mode.
-1632996024344	Marionette	INFO	Marionette enabled
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+96024344	Marionette	INFO	Marionette enabled
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofileE9BYWE\\search.json.mozlz4", (void 0)))
 DevTools listening on ws://localhost:9222/devtools/browser/c09b286f-8c68-4c82-9ceb-0f5d400ebf39
@@ -207,33 +224,36 @@ DevTools listening on ws://localhost:9222/devtools/browser/c09b286f-8c68-4c82-9c
 console.log: WebExtensions: reset-default-search: starting.
 console.log: WebExtensions: reset-default-search: No addons in our list are installed.
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
--debugging-port" "9222" "-no-remote" "-profile" "C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofilewVE7mB"
-*** You are running in headless mode.
-1632996155827	Marionette	INFO	Marionette enabled
-[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofilewVE7mB\\search.json.mozlz4", (void 0)))
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: has already ran once and saw panel, exit.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofilewVE7mB\\search.json.mozlz4", (void 0)))
 DevTools listening on ws://localhost:9222/devtools/browser/66add96f-c8f0-4fcf-9d2c-a5dbd5d63a26
 1632996156659	Marionette	INFO	Listening on port 1047
 1632996157080	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 console.log: WebExtensions: reset-default-search: starting.
 console.log: WebExtensions: reset-default-search: No addons in our list are installed.
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-debugging-port" "9222" "-no-remote" "-profile" "C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofileUXnIiX"
-*** You are running in headless mode.
-1632996185052	Marionette	INFO	Marionette enabled
-[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofileUXnIiX\\search.json.mozlz4", (void 0)))
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: has already ran once and saw panel, exit.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+o settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofileUXnIiX\\search.json.mozlz4", (void 0)))
 DevTools listening on ws://localhost:9222/devtools/browser/7c3a5292-df8a-401c-9f1e-6442db568588
 1632996186111	Marionette	INFO	Listening on port 23072
 1632996186308	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 console.log: WebExtensions: reset-default-search: starting.
 console.log: WebExtensions: reset-default-search: No addons in our list are installed.
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-debugging-port" "9222" "-no-remote" "-profile" "C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofileT5Bk0R"
-*** You are running in headless mode.
-1632996375548	Marionette	INFO	Marionette enabled
-[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofileT5Bk0R\\search.json.mozlz4", (void 0)))
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: has already ran once and saw panel, exit.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+o settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofileT5Bk0R\\search.json.mozlz4", (void 0)))
 DevTools listening on ws://localhost:9222/devtools/browser/e9faf4b6-6d95-45bd-a9c0-8ee20f928934
 1632996376405	Marionette	INFO	Listening on port 32803
 1632996376795	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
@@ -244,9 +264,12 @@ JavaScript warning: https://webapp.bato.to/cdn-cgi/challenge-platform/h/b/script
 console.log: WebExtensions: reset-default-search: starting.
 console.log: WebExtensions: reset-default-search: No addons in our list are installed.
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-t" "9222" "-no-remote" "-profile" "C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofilepROaHV"
-1632996528897	Marionette	INFO	Marionette enabled
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofilepROaHV\\search.json.mozlz4", (void 0)))
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: has already ran once and saw panel, exit.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+rust_mozprofilepROaHV\\search.json.mozlz4", (void 0)))
 DevTools listening on ws://localhost:9222/devtools/browser/e6b03a7f-48ac-4ede-a4d6-3a85f408a791
 1632996530788	Marionette	INFO	Listening on port 1077
 1632996531244	RemoteAgent	WARN	TLS certificate errors will be ignored for this session

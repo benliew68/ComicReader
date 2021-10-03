@@ -9,9 +9,49 @@
 
 {% block content %}
 
-<p></p>
-<h4 style="text-align: center;">{{ storyItem.title }} - {{ storyItem.chapterListNames[chapterNumber] }}</h4>
-<p></p>
+<div class="container">
+    <p></p>
+    <h4 style="text-align: center;">{{ storyItem.title }} - {{ storyItem.chapterListNames[chapterNumber] }}</h4>
+    <p></p>
+
+    <div class="dropdown">
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-expanded="false">
+          {{ storyItem.chapterListNames[chapterNumber]}}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">       
+            {% for chapterNum in range(storyItem.chapterCount)|reverse %}
+                <li><a class="dropdown-item" href="{{ url_for('read', storyURL=storyItem.url, chapter=chapterNum) }}">{{ storyItem.chapterListNames[chapterNum] }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="dropdown">
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="readingModeButton" data-toggle="dropdown" aria-expanded="false">
+          {{ storyItem.chapterListNames[chapterNumber]}}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="readingModeButton">       
+            {% for chapterNum in range(storyItem.chapterCount)|reverse %}
+                <li><a class="dropdown-item" href="{{ url_for('read', storyURL=storyItem.url, chapter=chapterNum) }}">{{ storyItem.chapterListNames[chapterNum] }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+
+    <p align="center">
+    {% if chapterNumber > 0 %}
+        <a class="btn btn-outline-primary mx-auto" 
+        href="{{ url_for('read', storyURL=storyItem.url, chapter=chapterNumber-1) }}" 
+        role="button">Previous Chapter</a>
+    {% endif %}
+  
+    {% if chapterNumber < storyItem.chapterCount-1 %}
+        <a class="btn btn-outline-primary mx-auto" 
+        href="{{ url_for('read', storyURL=storyItem.url, chapter=chapterNumber+1) }}" 
+        role="button">Next Chapter</a>
+    {% endif %}
+    </p>
+</div>
+
 
 
 

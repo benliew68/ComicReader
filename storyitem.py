@@ -22,19 +22,22 @@ class user:
                       ["url", "chap", "page"]]
 '''
 
-def ReturnSource(url):
+def ReturnSourceClass(url):
     SOURCEDICT = {
-        "Batoto": "https://bato.to/",
-        "Manganato": "https://manganato.com/",
-        "Readmanganato": "https://readmanganato.com/",
-        "Mangakakalot": "https://mangakakalot.com/",
-        "Mangadex": "empty for now",
-        "Webtoons": "https://www.webtoons.com/"
+        "batoto": "https://bato.to/",
+        "manganato": "https://manganato.com/",
+        "readmanganato": "https://readmanganato.com/",
+        "mangakakalot": "https://mangakakalot.com/",
+        "mangadex": "https://mangadex.org/",
+        "webtoons": "https://www.webtoons.com/"
     }
 
-    for key, value in SOURCEDICT.items():
+    for source, value in SOURCEDICT.items():
         if url.startswith(value):
-            return key
+            module = __import__(source)
+            sourceClass = getattr(module, source.capitalize())
+            return sourceClass
+            #return str(key)
 
 def StringToNestedList(inputString):
     try:
