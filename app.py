@@ -134,15 +134,18 @@ def library():
         #Display all the comics in library from the users entry in the database
         storyItemList = []
         comicsInLibrary = storyitem.StringToNestedList(dbUser.comicsInLibrary)
-
-        with concurrent.futures.ThreadPoolExecutor() as executor:
-            futures = [executor.submit(getattr(storyitem.ReturnSourceClass(comicsInLibrary[i][0]), 'GetStoryDetails'), comicsInLibrary[i][0])                  
-                for i in range(0,len(comicsInLibrary))]
-            for f in futures:
-                storyItemList.append(f.result())
+        if comicsInLibrary is not None:
+            with concurrent.futures.ThreadPoolExecutor() as executor:
+                futures = [executor.submit(getattr(storyitem.ReturnSourceClass(comicsInLibrary[i][0]), 'GetStoryDetails'), comicsInLibrary[i][0])                  
+                    for i in range(0,len(comicsInLibrary))]
+                for f in futures:
+                    storyItemList.append(f.result())
 
     else:
         flash("Log in or make an account before accessing your library!")
+        return redirect(url_for("login"))
+        
+        
 
 
     return render_template("library.html", storyItemList=storyItemList)
@@ -152,6 +155,7 @@ def library():
 def ReturnDetails(url):
     details = getattr(storyitem.ReturnSourceClass(url), 'GetStoryDetails')
     return details(url)
+
 
 @app.route("/search/")
 def search():
@@ -250,4 +254,4 @@ def sw():
 
 if __name__ == "__main__":
     db.create_all()
-    app.run(debug=True)
+    app.run(debug=True, host='127.0.0.1', port=5002)

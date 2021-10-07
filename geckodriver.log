@@ -87,7 +87,9 @@ console.log: WebExtensions: reset-default-search: has already ran once and saw p
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-ould not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofilesawSVb\\search.json.mozlz4", (void 0)))
+Exiting due to channel error.
+Exiting due to channel error.
+mp\\rust_mozprofilesawSVb\\search.json.mozlz4", (void 0)))
 DevTools listening on ws://localhost:9222/devtools/browser/c6fd8610-465e-49aa-a291-3c92c05b8813
 1632736088766	Marionette	INFO	Listening on port 1076
 1632736089088	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
@@ -145,8 +147,9 @@ JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-8683878	Marionette	INFO	Marionette enabled
-[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+Exiting due to channel error.
+Exiting due to channel error.
+positorSWGL failed mapping default framebuffer, no dt
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofileholhSv\\search.json.mozlz4", (void 0)))
 DevTools listening on ws://localhost:9222/devtools/browser/c0c2ed85-b124-4674-bd07-a9e03d77c937
 1632988684711	Marionette	INFO	Listening on port 1066
@@ -185,8 +188,8 @@ console.log: WebExtensions: reset-default-search: has already ran once and saw p
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-"
-*** You are running in headless mode.
+Exiting due to channel error.
+ss mode.
 1632991777534	Marionette	INFO	Marionette enabled
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofileVZpuXT\\search.json.mozlz4", (void 0)))
@@ -201,8 +204,8 @@ console.log: WebExtensions: reset-default-search: has already ran once and saw p
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-"
-*** You are running in headless mode.
+Exiting due to channel error.
+ss mode.
 1632995741660	Marionette	INFO	Marionette enabled
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofileSMA62T\\search.json.mozlz4", (void 0)))
@@ -215,8 +218,9 @@ JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-96024344	Marionette	INFO	Marionette enabled
-[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+Exiting due to channel error.
+Exiting due to channel error.
+mpositorSWGL failed mapping default framebuffer, no dt
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofileE9BYWE\\search.json.mozlz4", (void 0)))
 DevTools listening on ws://localhost:9222/devtools/browser/c09b286f-8c68-4c82-9ceb-0f5d400ebf39
 1632996025773	Marionette	INFO	Listening on port 30347
@@ -229,7 +233,8 @@ console.log: WebExtensions: reset-default-search: has already ran once and saw p
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofilewVE7mB\\search.json.mozlz4", (void 0)))
+Exiting due to channel error.
+ofile?" (new NotFoundError("Could not open the file at C:\\Users\\BenLi\\AppData\\Local\\Temp\\rust_mozprofilewVE7mB\\search.json.mozlz4", (void 0)))
 DevTools listening on ws://localhost:9222/devtools/browser/66add96f-c8f0-4fcf-9d2c-a5dbd5d63a26
 1632996156659	Marionette	INFO	Listening on port 1047
 1632996157080	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
@@ -269,7 +274,8 @@ console.log: WebExtensions: reset-default-search: has already ran once and saw p
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-rust_mozprofilepROaHV\\search.json.mozlz4", (void 0)))
+Exiting due to channel error.
+son.mozlz4", (void 0)))
 DevTools listening on ws://localhost:9222/devtools/browser/e6b03a7f-48ac-4ede-a4d6-3a85f408a791
 1632996530788	Marionette	INFO	Listening on port 1077
 1632996531244	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
