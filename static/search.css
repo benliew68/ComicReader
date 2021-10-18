@@ -1,3 +1,8 @@
+h1{margin:0;}
+h2{margin:0;}
+h3{margin:0;}
+
+
 .img-cover {
     float: left;
     margin-top: 5px;
@@ -45,3 +50,4 @@ img.center {
     height: 100px;
     grid-template-columns: auto auto;
 }
+
