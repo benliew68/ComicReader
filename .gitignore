@@ -2,3 +2,4 @@ testingfolder/
 __pycache__/
 
 *.wsgi
+*.sqlite3
