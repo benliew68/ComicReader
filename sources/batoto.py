@@ -1,25 +1,8 @@
-from sys import set_coroutine_origin_tracking_depth
 import cfscrape
 from bs4 import BeautifulSoup
 import re
 
-
-from requests_html import HTMLSession
-
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-#from selenium.webdriver.chrome.options import Options
-
-from selenium.webdriver import Firefox
-from selenium.webdriver.firefox.options import Options
-
-import undetected_chromedriver.v2 as uc
-
 import requests
-
-import time
 
 from storyitem import StoryItem
 
@@ -201,10 +184,6 @@ class Batoto:
         doc = BeautifulSoup(page_source, 'lxml')
 
         for script in doc.find_all('script'):
-            '''print("---")
-            print(str(script))
-            print("---")
-            print(type(script))'''
             if "const images" in str(script):
                 imageList = str(re.search(r'const images .*', str(script)).group(0))
                 imageList = imageList.replace("const images = [", '').replace('"', '').replace("];",'')
@@ -224,63 +203,22 @@ class Batoto:
                     testLink = str(prepend) + imageList[0]
                     print(testLink)
                     
-                    
-                    
                     try:
                         r = requests.get(testLink)
                         prependString = str(prepend)
                         break
                     except:
                         print("ERROR WHILE GETTING IMAGES")
-                        
-                    #if r.status_code == 403 or r.status_code == 404:
-                    #    print("403 ERROR ON " + prepend)
-                    #else:
-                    #    prependString = str(prepend)
-                    #    break
-                        
-
-                    
-
 
                 for image in imageList:
                     #print(image)
                     chapterImageLinks.append(prependString + image)
 
-                    
-
-
-        #imageViewer = doc.find("div", {"id": "viewer"})
-
-        '''for image in doc.find_all("img"):
-            imageURL = image.get("src")
-            if imageURL.startswith("https://"):
-                chapterImageLinks.append(imageURL)'''
-        
-        #driver.quit()
-        #print(chapterImageLinks)
         return chapterImageLinks
-            
 
-        
-        
-        
-        
-
-
-        
-                
-
-
-        
-
-
-#item = Batoto.GetStoryDetails("https://bato.to/series/73818/world-tatto")
-
-#print(Batoto.GetChapterImages("https://bato.to/chapter/1438385"))
-#print(Batoto.GetChapterImages("https://bato.to/chapter/1438385"))
-
-'''x=0
+'''
+#Framework for image downloader - potentially move to storyitem.py (utils)
+x=0
 for image in imageList:
     img_data = requests.get(image).content
     with open('{}.jpg'.format(x), 'wb') as handler:
