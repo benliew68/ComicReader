@@ -115,6 +115,10 @@ def logout():
 def profile():
     return render_template("profile.html")
 
+@app.route("/settings/")
+def settings():
+    return render_template("settings.html")
+
 @app.route("/library/")
 def library():
     if "user" in session:
