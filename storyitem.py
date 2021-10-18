@@ -14,6 +14,7 @@ class StoryItem:
     chapterListLinks = []
 
 '''
+The user object stored in the database
 class user:
     name = None
     password = None
@@ -34,21 +35,21 @@ def ReturnSourceClass(url):
 
     for source, value in SOURCEDICT.items():
         if url.startswith(value):
-            module = __import__(source)
+            sourcename = f"sources." + source
+            module = __import__(sourcename, fromlist=['sources'])
             sourceClass = getattr(module, source.capitalize())
+
             return sourceClass
-            #return str(key)
 
 def StringToNestedList(inputString):
     try:
         prelimList = inputString.split(",")
         subList = [prelimList[n:n+3] for n in range(0, len(prelimList), 3)]
+        
         return subList
     except:
         print("Error occurred getting library list from database")
     
-
-
 def NestedListToString(list):
     returnList = []
     for innerList in list:

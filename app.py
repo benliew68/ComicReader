@@ -7,7 +7,7 @@ import concurrent.futures
 import storyitem
 
 
-from batoto import Batoto
+from sources.batoto import Batoto
 
 app = Flask(__name__)
 #Cleartext pw as this server is not for production
