@@ -210,7 +210,8 @@ class Batoto:
                 imageList = imageList.replace("const images = [", '').replace('"', '').replace("];",'')
                 imageList = imageList.split(",")
 
-                prependList = ["https://xfs-003.bato.to/", 
+                prependList = ["https://xfs-003.bato.to/",
+                               "https://xfs-007.mpcdn.net/",  
                                "https://xcdn-209.bato.to/7002/5e0/5fe803b76b25d09df6e730e5/",
                                "https://xfs-007.bato.to/7002/759/6130ff79eebc11256f476957/",
                                "https://xcdn-210.bato.to/7002/956/5fda60a02351c4f57a5f3659/",
@@ -224,12 +225,20 @@ class Batoto:
                     print(testLink)
                     
                     
-                    r = requests.get(testLink)
-                    if r.status_code == 403 or r.status_code == 404:
-                        print("403 ERROR ON " + prepend)
-                    else:
+                    
+                    try:
+                        r = requests.get(testLink)
                         prependString = str(prepend)
                         break
+                    except:
+                        print("ERROR WHILE GETTING IMAGES")
+                        
+                    #if r.status_code == 403 or r.status_code == 404:
+                    #    print("403 ERROR ON " + prepend)
+                    #else:
+                    #    prependString = str(prepend)
+                    #    break
+                        
 
                     
 
