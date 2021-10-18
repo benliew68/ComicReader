@@ -1,2 +1,4 @@
 testingfolder/
 __pycache__/
+
+*.wsgi
