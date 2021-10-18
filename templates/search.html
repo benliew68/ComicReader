@@ -15,25 +15,33 @@
     {% endwith %}
 
 <h1>Search results for: {{ searchResult }}</h1>
+<p></p>
 
-{% for i in range(0, (names|length)-1) %}
-    <div class="story-div">
-        <a href="{{ links[i] }}"">
-            <img class="img-cover" src="{{ imageLinks[i] }}" width="200" height="300"/>
-        </a>
-        <h2>{{ names[i] }}</h2>
-        <b>{{ storyItemList[i].status }} - {{ storyItemList[i].chapterCount }} Chapter(s)</b>
-        <p>{{ storyItemList[i].description }}</p>
 
-        {% set currentURL = storyItemList[i].url %}
-        
-        <a class="btn btn-outline-primary" id="btnFetch" href="{{ url_for('comicinfo', returnItem=currentURL) }}" role="button">
-            More Info
-        </a>
-    
+
+<div class="row">
+    <div class="col">
+        {% for i in range(0, (names|length)-1) %}
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+                    <a href="{{ links[i] }}"">
+                        <img class="img-cover" src="{{ imageLinks[i] }}" width="200" height="300"/>
+                    </a>
+                    <h2>{{ names[i] }}</h2>
+                    <b>{{ storyItemList[i].status }} - {{ storyItemList[i].chapterCount }} Chapter(s)</b>
+                    <p>{{ storyItemList[i].description }}</p>
+            
+                    {% set currentURL = storyItemList[i].url %}
+                    
+                    <a class="btn btn-outline-primary" id="btnFetch" href="{{ url_for('comicinfo', returnItem=currentURL) }}" role="button">
+                        More Info
+                    </a>
+                </div>
+            </div>
+            
+        {% endfor %}
     </div>
-    
-{% endfor %}
+</div>
 
 <script>
     var element = document.getElementsByID('btnFetch');
