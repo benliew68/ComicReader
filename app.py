@@ -132,12 +132,18 @@ def removecomic():
             if dbUser.comicsInLibrary is not None:
                 if storyURL in dbUser.comicsInLibrary:
                     comicsInLibrary = storyitem.StringToNestedList(dbUser.comicsInLibrary)
-                    for comic in comicsInLibrary:
-                        if storyURL in comic:
-                            comicsInLibrary.remove(comic)
 
-                    comicsInLibrary = storyitem.NestedListToString(comicsInLibrary)
+                    #Erase the comicsInLibrary entry in db if this is the last comic in the library
+                    if len(comicsInLibrary) == 1:
+                        comicsInLibrary = None
 
+                    #Otherwise just remove it from the list    
+                    else:
+                        for comic in comicsInLibrary:
+                            if storyURL in comic:
+                                comicsInLibrary.remove(comic)
+                                comicsInLibrary = storyitem.NestedListToString(comicsInLibrary)
+                                
                     dbUser.comicsInLibrary = comicsInLibrary
                     db.session.commit()
                 
@@ -185,6 +191,7 @@ def library():
         #Display all the comics in library from the user's entry in the database
         storyItemList = []
         comicsInLibrary = storyitem.StringToNestedList(dbUser.comicsInLibrary)
+        print(comicsInLibrary)
 
         if comicsInLibrary is not None:
             #Multithread the scraping of comics
