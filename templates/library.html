@@ -30,13 +30,23 @@
                 
                         {% set currentURL = story.url %}
                         
-                        <a class="btn btn-outline-primary" id="btnFetch" href="{{ url_for('comicinfo', returnItem=currentURL) }}" role="button">
-                            More Info
-                        </a>
-        
                         <a class="btn btn-outline-primary" id="btnFetch" href="{{ url_for('read', storyURL=currentURL, chapter='redirectfromlibrary') }}" role="button">
                             Continue Reading
                         </a>
+                        
+                        <div class="btn-group">
+                            <a class="btn btn-outline-primary" id="btnFetch" href="{{ url_for('comicinfo', returnItem=currentURL) }}" role="button">
+                                More Info
+                            </a>
+                            <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="{{ url_for('removecomic', storyURL=currentURL) }}">Remove from library</a>
+                            </div>
+                          </div>
+        
+
                     </div>
                 </div>
                 {% set index = index + 1 %}

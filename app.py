@@ -119,6 +119,30 @@ def profile():
 def settings():
     return render_template("settings.html")
 
+@app.route("/removecomic/")
+def removecomic():
+    if "user" in session:
+        #If we're given a url, remove it from the user's details
+        if request.args.get("storyURL"):
+            storyURL = str(request.args.get("storyURL"))
+
+            #Query database by user name
+            dbUser = users.query.filter_by(name=session["user"]).first()
+
+            if dbUser.comicsInLibrary is not None:
+                if storyURL in dbUser.comicsInLibrary:
+                    comicsInLibrary = storyitem.StringToNestedList(dbUser.comicsInLibrary)
+                    for comic in comicsInLibrary:
+                        if storyURL in comic:
+                            comicsInLibrary.remove(comic)
+
+                    comicsInLibrary = storyitem.NestedListToString(comicsInLibrary)
+
+                    dbUser.comicsInLibrary = comicsInLibrary
+                    db.session.commit()
+                
+    return redirect(url_for("library"))
+
 @app.route("/library/")
 def library():
     if "user" in session:
