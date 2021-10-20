@@ -13,7 +13,7 @@
       
 
       <nav class="navbar navbar-light navbar-expand shadow-sm mb-4 topbar static-top">
-        <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+        <div class="container-fluid"><i class="fas fa-bars"></i></button>
           <a class="navbar-brand" href="/">Comic Reader</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -81,6 +81,16 @@
         
         
         <div class="container-fluid">
+          {% with messages = get_flashed_messages() %}
+            {% for msg in messages %}
+              <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                {{ msg }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            {% endfor %}
+          {% endwith %}
           {% block content %}
           {% endblock %}
         </div>

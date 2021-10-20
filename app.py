@@ -115,8 +115,17 @@ def logout():
 def profile():
     return render_template("profile.html")
 
-@app.route("/settings/")
+@app.route("/settings/", methods=['GET', 'POST']) 
 def settings():
+    if request.args.get("command"):
+        command = request.args.get("command")
+        if command == "save_settings":
+            #Save Settings
+            pass
+        elif command == "delete_account":
+            #Delete Account
+            pass
+
     return render_template("settings.html")
 
 @app.route("/removecomic/")
@@ -143,7 +152,7 @@ def removecomic():
                             if storyURL in comic:
                                 comicsInLibrary.remove(comic)
                                 comicsInLibrary = storyitem.NestedListToString(comicsInLibrary)
-                                
+
                     dbUser.comicsInLibrary = comicsInLibrary
                     db.session.commit()
                 

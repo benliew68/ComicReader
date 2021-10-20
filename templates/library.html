@@ -8,11 +8,6 @@
 
 {% block content %}
 
-{% with messages = get_flashed_messages() %}
-    {% for msg in messages %}
-        <p>{{msg}}</p>
-    {% endfor %}
-{% endwith %}
 
 {% if "user" in session %} 
     <div class="row">
