@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
     {% block head %}
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <link rel="stylesheet" href="{{ url_for('static', filename='search.css') }}">
@@ -13,7 +14,7 @@
       
 
       <nav class="navbar navbar-light navbar-expand shadow-sm mb-4 topbar static-top">
-        <div class="container-fluid"><i class="fas fa-bars"></i></button>
+        <div class="container-fluid">
           <a class="navbar-brand" href="/">Comic Reader</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
