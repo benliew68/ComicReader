@@ -19,7 +19,7 @@ class Batoto:
         
         scraper = cfscrape.create_scraper()
         html = scraper.get(url).content
-        doc = BeautifulSoup(html, 'lxml')
+        doc = BeautifulSoup(html, features='lxml')
 
 
         #Parse data
