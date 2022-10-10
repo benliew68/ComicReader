@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Library{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='search.css') }}">
+{% endblock %}
+
+{% block content %}
+
+
+{% if "user" in session %} 
+    <div class="row">
+        <div class="col">
+            {% set index = 0 %}
+            {% for story in storyItemList %}
+                <div class="card shadow-sm mb-3">
+                    <div class="card-body">
+                        <a href="{{ story.url }}"">
+                            <img class="img-cover" src="{{ story.cover }}" width="200" height="300"/>
+                        </a>
+                        <h2>{{ story.title }}</h2>
+                        <b>{{ story.status }} - {{ story.chapterCount }} Chapter(s)</b>
+                        <p>{{ story.description }}</p>
+                
+                        {% set currentURL = story.url %}
+                        
+                        <a class="btn btn-outline-primary" id="btnFetch" href="{{ url_for('read', storyURL=currentURL, chapter='redirectfromlibrary') }}" role="button">
+                            Continue Reading
+                        </a>
+                        
+                        <div class="btn-group">
+                            <a class="btn btn-outline-primary" id="btnFetch" href="{{ url_for('comicinfo', returnItem=currentURL) }}" role="button">
+                                More Info
+                            </a>
+                            <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="{{ url_for('removecomic', storyURL=currentURL) }}">Remove from library</a>
+                            </div>
+                          </div>
+        
+
+                    </div>
+                </div>
+                {% set index = index + 1 %}
+            {% endfor %}
+        </div>
+    </div>
+{% else %}
+    <p>No User Placeholder Text</p>
+{% endif %}
+
+
+{% endblock %}

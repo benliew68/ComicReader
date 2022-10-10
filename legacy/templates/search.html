@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='search.css') }}">
+{% endblock %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+
+<h1>Search results for: {{ searchResult }}</h1>
+<p></p>
+
+
+
+<div class="row">
+    <div class="col">
+        {% for i in range(0, (names|length)-1) %}
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+                    <a href="{{ links[i] }}"">
+                        <img class="img-cover" src="{{ imageLinks[i] }}" width="200" height="300"/>
+                    </a>
+                    <h2>{{ names[i] }}</h2>
+                    <b>{{ storyItemList[i].status }} - {{ storyItemList[i].chapterCount }} Chapter(s)</b>
+                    <p>{{ storyItemList[i].description }}</p>
+            
+                    {% set currentURL = storyItemList[i].url %}
+                    
+                    <div class="btn-group">
+                        <a class="btn btn-outline-primary" id="btnFetch" href="{{ url_for('comicinfo', returnItem=currentURL) }}" role="button">
+                            More Info
+                        </a>
+                        <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{ url_for('library', storyURL=currentURL) }}">Add to library</a>
+                        </div>
+                      </div>
+                </div>
+            </div>
+            
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    var element = document.getElementsByID('btnFetch');
+    for(var i=0;i<element.length;i++){
+        element[i].addEventListener("click", function(){element.innerHTML='"<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...';}, false);   
+    }
+
+
+</script>
+
+
+{% endblock %}
+

@@ -1,0 +1,38 @@
+
+input[type=input-text] {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    width: 75%;
+    border: 2px solid #f6f6f6;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+input[type=input-text]:placeholder {
+    color: #cccccc;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 20px;
+  }
+  
+.center-block {
+display: block;
+margin: auto;
+margin-right: auto;
+margin-left: auto;
+text-align:center
+
+}

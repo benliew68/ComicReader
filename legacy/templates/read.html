@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='search.css') }}">
+{% endblock %}
+
+{% block title %}{{ storyItem.title }} - {{ storyItem.chapterListNames[chapterNumber] }}{% endblock %}
+
+{% block content %}
+
+<div class="container" style="background-color: #f8f9fa!important;">
+    <p></p>
+    <h4 style="text-align: center;">{{ storyItem.title }} - {{ storyItem.chapterListNames[chapterNumber] }}</h4>
+    <p></p>
+
+    
+    
+    <span class="dropdown">
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="chapterListButton" data-toggle="dropdown" aria-expanded="false">
+          {{ storyItem.chapterListNames[chapterNumber]}}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="chapterListButton">       
+            {% for chapterNum in range(storyItem.chapterCount)|reverse %}
+                <li><a class="dropdown-item" href="{{ url_for('read', storyURL=storyItem.url, chapter=chapterNum) }}">{{ storyItem.chapterListNames[chapterNum] }}</a></li>
+            {% endfor %}
+        </ul>
+    </span>
+    
+    <!--
+
+    <span class="dropdown">
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="readingModeButton" data-toggle="dropdown" aria-expanded="false">
+          Reading Mode
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="readingModeButton">       
+            <li><a class="dropdown-item" href="#">Single Page</a></li>
+            <li><a class="dropdown-item" href="#">Long Strip</a></li>
+        </ul>
+    </span>
+
+    <span class="dropdown">
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="touchControlsButton" data-toggle="dropdown" aria-expanded="false">
+          Touch Controls
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="touchControlsButton">       
+            <li><a class="dropdown-item" href="#">On</a></li>
+            <li><a class="dropdown-item" href="#">Off</a></li>
+        </ul>
+    </span>
+    
+    -->
+    <p></p>
+
+    <p align="center">
+    {% if chapterNumber > 0 %}
+        <a class="btn btn-outline-primary mx-auto" 
+        href="{{ url_for('read', storyURL=storyItem.url, chapter=chapterNumber-1) }}" 
+        role="button">Previous Chapter</a>
+    {% endif %}
+  
+    {% if chapterNumber < storyItem.chapterCount-1 %}
+        <a class="btn btn-outline-primary mx-auto" 
+        href="{{ url_for('read', storyURL=storyItem.url, chapter=chapterNumber+1) }}" 
+        role="button">Next Chapter</a>
+    {% endif %}
+    </p>
+</div>
+
+
+
+
+{% for imageNum in range(0, (chapterImageLinks|length)-1) %}
+    <img class="center" src="{{ chapterImageLinks[imageNum] }}" onclick="scrollWin(0, 50)"/>
+{% endfor %}
+
+<p></p>
+
+<p align="center">
+
+
+
+{% if chapterNumber > 0 %}
+    <a class="btn btn-outline-primary mx-auto" 
+    href="{{ url_for('read', storyURL=storyItem.url, chapter=chapterNumber-1) }}" 
+    role="button">Previous Chapter</a>
+{% endif %}
+
+{% if chapterNumber < storyItem.chapterCount-1 %}
+    <a class="btn btn-outline-primary mx-auto" 
+    href="{{ url_for('read', storyURL=storyItem.url, chapter=chapterNumber+1) }}" 
+    role="button">Next Chapter</a>
+{% endif %}
+</p>
+<p></p>
+
+<script>
+function scrollWin() {
+    
+    window.scrollBy(0, self.innerHeight*0.7);
+}
+</script>
+
+{% endblock %}
+
