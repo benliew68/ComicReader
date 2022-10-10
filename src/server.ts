@@ -1,7 +1,7 @@
 import express, { json, Request, Response } from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import * as CryptoJS from 'crypto-js';
+// import * as CryptoJS from 'crypto-js';
 
 const app = express();
 app.use(express.json());
@@ -11,6 +11,7 @@ const PORT = 5002;
 const IP = '127.0.0.1';
 
 app.get('/', (req: Request, res: Response) => {
+    console.log('Root URL Accessed!');
     // Redirect to login
     res.json({});
 });
@@ -77,10 +78,14 @@ app.get('/service-worker.js', (req: Request, res: Response) => {
     res.json({});
 });
 
+app.get('/test_api', (req: Request, res: Response) => {
+    res.send({ "users": ["userOne", "userTwo", "userThree"] });
+});
+
 app.use(morgan('dev'));
 
 const server = app.listen(PORT, IP, () => {
-    console.log('Server loaded');
+    console.log(`Server running on http://${IP}:${PORT}`);
     // Initialise database
 });
 
